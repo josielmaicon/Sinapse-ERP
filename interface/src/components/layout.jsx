@@ -1,30 +1,38 @@
 import React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 import { Settings, User } from 'lucide-react';
-import Logo from './Logo';
 import routes from '../routes';
+import Logo from './Logo';
 import './Layout.css';
 
 export default function Layout() {
   return (
-    <div className="app-wrapper">
+    <div>
       <header className="topbar">
-        {/* Lado esquerdo: logo + nome */}
-        <div className="topbar-left squircle">
-          <Logo size={40} />
+        {/* ESQUERDA */}
+        <div className="topbar-left">
+          <Logo size={40} color="var(--color-primary)" />
           <span className="app-name">Sinápse</span>
         </div>
 
-        {/* Navegação no meio */}
-        <nav className="nav-links">
+        {/* MEIO - NAVEGAÇÃO */}
+        <nav className="topbar-nav btn-group">
           {routes.map(({ path, name }) => (
-            <NavLink key={path} to={path} className="nav-btn squircle">
+            <NavLink
+              key={path}
+              to={path}
+              end={path === '/'}
+              className={({ isActive }) =>
+                `nav-btn squircle ${isActive ? 'active' : ''}`
+              }
+            >
               {name}
             </NavLink>
           ))}
         </nav>
 
-        {/* Lado direito: ícones */}
+
+        {/* DIREITA - ICONES */}
         <div className="topbar-right">
           <button className="icon-btn squircle">
             <Settings size={20} />

@@ -24,20 +24,6 @@
   gap: 12px;
 }
 
-.nav-btn {
-  padding: 16px 26px;
-  background: var(--color-primary);
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.2s;
-}
-
-.nav-btn:hover {
-  background: #0056b3;
-}
-
 .topbar-right {
   display: flex;
   gap: 8px;
