@@ -1,0 +1,131 @@
+/* ============================
+   Fonte
+   ============================ */
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* ============================
+   Variáveis globais
+   ============================ */
+:root {
+  /* Fonte */
+  --font-family-base: 'Zalando Sans SemiExpanded', sans-serif;
+
+  /* Cores */
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --color-accent: #00d4ff;
+  --color-bg: #f8f9fa;
+  --color-text: #212529;
+
+  /* Layout */
+  --layout-margin: 24px;
+  --layout-max-width: 1200px;
+
+  /* Componentes */
+  --squircle-radius: 20pt;
+  --element-padding: 12px 20px;
+}
+
+/* ============================
+   Reset
+   ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: var(--layout-margin);
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+
+/* ============================
+   Squircle
+   ============================ */
+.squircle {
+  --squircle-displacement: var(--squircle-radius);
+
+  clip-path: shape(
+    from 0 var(--squircle-displacement),
+    curve to var(--squircle-displacement) 0 with 0 0 / 0 0,
+    hline to calc(100% - var(--squircle-displacement)),
+    curve to 100% var(--squircle-displacement) with 100% 0 / 100% 0,
+    vline to calc(100% - var(--squircle-displacement)),
+    curve to calc(100% - var(--squircle-displacement)) 100% with 100% 100% / 100% 100%,
+    hline to var(--squircle-displacement),
+    curve to 0 calc(100% - var(--squircle-displacement)) with 0 100% / 0 100%,
+    close
+  );
+}
+
+/* ============================
+   Botões
+   ============================ */
+.btn {
+  padding: var(--element-padding);
+  border: none;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn:hover {
+  background: #0056b3;
+}
+.btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.btn.squircle {
+  /* aplica squircle */
+}
+
+/* ============================
+   Cards / Módulos
+   ============================ */
+.card {
+  background: white;
+  padding: var(--element-padding);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.card.squircle {
+  /* aplica squircle */
+}
+
+/* ============================
+   Inputs
+   ============================ */
+.input {
+  border: 1px solid #ccc;
+  padding: var(--element-padding);
+  outline: none;
+}
+.input.squircle {
+  /* aplica squircle */
+}
+
+/* ============================
+   Checkbox
+   ============================ */
+.checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-primary);
+  background: white;
+  cursor: pointer;
+}
+.checkbox.squircle {
+  /* aplica squircle */
+}
+.checkbox:checked {
+  background: var(--color-primary);
+}
