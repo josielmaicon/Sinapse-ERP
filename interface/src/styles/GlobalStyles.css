@@ -6,6 +6,11 @@
 /* ============================
    Variáveis globais
 ============================ */
+html, body, #root {
+  height: 100%;        /* garante altura total da viewport */
+  margin: 0;           /* remove margens padrões do body */
+}
+
 :root {
   /* Fonte */
   --font-family-base: 'Zalando Sans SemiExpanded', sans-serif;
@@ -23,6 +28,8 @@
   /* Layout */
   --layout-margin: 24px;
   --layout-max-width: 1200px;
+    height: 100%;   /* garante altura total */
+
 
   /* Raio de borda */
   --btn-radius: 15px;
@@ -33,6 +40,14 @@
 
   /* Espaçamento padrão */
   --element-padding: 12px 20px;
+}
+
+.app-container {
+  height: calc(100% - 100px); /* altura = tela - topbar */
+  overflow: auto;             /* rolagem só dentro do conteúdo */
+  display: flex;              /* pra flex filhos funcionarem */
+  flex-direction: column;
+  gap: 16px;                  /* se quiser espaço entre módulos */
 }
 
 /* ============================
