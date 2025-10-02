@@ -1,6 +1,7 @@
 .topbar {
   height: 100px;
   display: flex;
+  padding: 0!important;
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--layout-margin);
@@ -16,7 +17,8 @@
 
 .app-name {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  color: var(--color-primary);
 }
 
 .nav-links {
@@ -30,15 +32,16 @@
 }
 
 .icon-btn {
-  background: var(--color-secondary);
+  background: var(--color-bg-lvl-1);
   border: none;
-  padding: 8px;
+  padding: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border-radius: 20px;
 }
 
 .icon-btn:hover {
-  background: #495057;
+  background: var(--color-bg-lvl-2);
 }

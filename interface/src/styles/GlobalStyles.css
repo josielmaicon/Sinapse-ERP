@@ -11,36 +11,28 @@
   --font-family-base: 'Zalando Sans SemiExpanded', sans-serif;
 
   /* Cores */
-  --color-primary: #007bff;
+  --color-primary: #004f76;
   --color-secondary: #6c757d;
   --color-accent: #00d4ff;
-  --color-bg: #f8f9fa;
+  --color-bg: #e9ecef;
+  --color-bg-lvl-1: #f9fbfc;
+  --color-bg-lvl-2: #fff;
   --color-text: #212529;
+
 
   /* Layout */
   --layout-margin: 24px;
   --layout-max-width: 1200px;
 
-  /* Tamanhos e raio de squircle relativo */
-  --btn_squircle-radius: 30pt;        /* Botões */
-  --btn_grp_squircle-radius: 15pt;    /* Grupo de botões */
-  --mdl_squircle-radius: 25pt;        /* Cards / Modules */
-  --inp_squircle-radius: 25pt;        /* Inputs */
-  --chx_squircle-radius: 25pt;        /* Checkboxes */
-  --element-padding: 12px 20px;
+  /* Raio de borda */
+  --btn-radius: 15px;
+  --btn-group-radius: 20px;
+  --card-radius: 12px;
+  --input-radius: 10px;
+  --checkbox-radius: 6px;
 
-  /* Squircle global */
-  --squircle: shape(
-    from 0 var(--btn_squircle-radius),
-    curve to var(--btn_squircle-radius) 0 with 0 0 / 0 0,
-    hline to calc(100% - var(--btn_squircle-radius)),
-    curve to 100% var(--btn_squircle-radius) with 100% 0 / 100% 0,
-    vline to calc(100% - var(--btn_squircle-radius)),
-    curve to calc(100% - var(--btn_squircle-radius)) 100% with 100% 100% / 100% 100%,
-    hline to var(--btn_squircle-radius),
-    curve to 0 calc(100% - var(--btn_squircle-radius)) with 0 100% / 0 100%,
-    close
-  );
+  /* Espaçamento padrão */
+  --element-padding: 12px 20px;
 }
 
 /* ============================
@@ -64,13 +56,6 @@ h1, h2, h3, h4 {
 }
 
 /* ============================
-   Squircle aplicado globalmente
-============================ */
-.squircle {
-  clip-path: var(--squircle);
-}
-
-/* ============================
    Botões gerais
 ============================ */
 .btn {
@@ -81,6 +66,7 @@ h1, h2, h3, h4 {
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s;
+  border-radius: var(--btn-radius);
 }
 
 .btn:hover {
@@ -99,10 +85,7 @@ h1, h2, h3, h4 {
   background: white;
   padding: var(--element-padding);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.card.squircle {
-  clip-path: var(--squircle);
+  border-radius: var(--card-radius);
 }
 
 /* ============================
@@ -112,10 +95,7 @@ h1, h2, h3, h4 {
   border: 1px solid #ccc;
   padding: var(--element-padding);
   outline: none;
-}
-
-.input.squircle {
-  clip-path: var(--squircle);
+  border-radius: var(--input-radius);
 }
 
 /* ============================
@@ -128,10 +108,7 @@ h1, h2, h3, h4 {
   border: 2px solid var(--color-primary);
   background: white;
   cursor: pointer;
-}
-
-.checkbox.squircle {
-  clip-path: var(--squircle);
+  border-radius: var(--checkbox-radius);
 }
 
 .checkbox:checked {
@@ -144,30 +121,37 @@ h1, h2, h3, h4 {
 .btn-group {
   display: flex;
   gap: 8px;
-  background: #e9ecef; /* fundo cinza */
-  padding: 5px 5px;
-  clip-path: var(--squircle);
+  background: var(--color-bg-lvl-1); /* fundo cinza */
+  padding: 5px;
+  border-radius: var(--btn-group-radius);
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  font-size: 14px;
 }
 
 .nav-btn {
-  padding: 12px 24px;
-  font-weight: 500;
+  display: inline-flex;       /* flex dentro do botão */
+  align-items: center;        /* centraliza verticalmente */
+  justify-content: center;    /* centraliza horizontalmente */
+  padding: 10px 17px;
+  font-weight: 400;
   border: none;
   cursor: pointer;
   background: transparent; /* não selecionado */
   color: var(--color-text);
   transition: 0.2s;
+  border-radius: var(--btn-radius);
+  text-decoration: none;
 }
 
 .nav-btn:hover {
   background: #dee2e6; /* hover leve no não selecionado */
+  text-decoration: none;
 }
 
 .nav-btn.active {
-  background: var(--color-primary);
-  color: white;
+  background: var(--color-bg-lvl-2);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.nav-btn.squircle {
-  clip-path: var(--squircle);
-}

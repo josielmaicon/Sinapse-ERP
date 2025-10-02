@@ -17,7 +17,7 @@ export default function Layout() {
 
         {/* MEIO - NAVEGAÇÃO */}
         <nav className="topbar-nav btn-group">
-          {routes.map(({ path, name }) => (
+          {routes.map(({ path, name, icon: Icon }) => (
             <NavLink
               key={path}
               to={path}
@@ -26,6 +26,7 @@ export default function Layout() {
                 `nav-btn squircle ${isActive ? 'active' : ''}`
               }
             >
+              <Icon size={20} style={{ marginRight: '6px' }}/>
               {name}
             </NavLink>
           ))}
@@ -35,10 +36,10 @@ export default function Layout() {
         {/* DIREITA - ICONES */}
         <div className="topbar-right">
           <button className="icon-btn squircle">
-            <Settings size={20} />
+            <Settings size={23} color="var(--color-text)"/>
           </button>
           <button className="icon-btn squircle">
-            <User size={20} />
+            <User size={23} />
           </button>
         </div>
       </header>
