@@ -4,7 +4,7 @@
   grid-template-rows: 0.7fr 0.3fr;    /* linhas 70% e 30% */
   gap: 16px;
   height: calc(100vh - 120px);
-  padding: 16px;
+  padding: s6px;
 }
 
 /* Primeira coluna */
@@ -19,7 +19,7 @@
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   display: flex;       /* lado a lado */
-  gap: 8px;
+  gap: 4px;
 }
 
 .sub-module {
