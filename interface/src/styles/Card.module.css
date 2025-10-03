@@ -1,21 +1,21 @@
 .card {
-  background-color: #ffffff; /* Fundo branco para o card */
-  border-radius: 12px;       /* Bordas arredondadas para o "balão" */
-  padding: 24px;             /* <<< SEU PADDING! Espaçamento interno */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave para destacar */
+  background-color: var(--color-bg-lvl-1); /* Fundo branco para o card */
+  border-radius: 32px;       /* Bordas arredondadas para o "balão" */
+  padding: 30px;             /* <<< SEU PADDING! Espaçamento interno */
+  box-shadow:none; /* Sombra suave para destacar */
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease-in-out; /* Efeito suave ao passar o mouse */
+  /* transition: transform 0.2s ease-in-out; */
 }
 
 .card:hover {
-  transform: translateY(-5px); /* Levanta um pouco o card ao passar o mouse */
+  /* transform: translateY(-5px); */
 }
 
 .card h3 {
-  margin-top: 0; /* Remove a margem de cima do título */
+  margin-top: 0;
   margin-bottom: 16px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #333;
 }
 

@@ -11,7 +11,7 @@
 .grid_0 {
   display: grid;
   grid-template-columns: 0.6fr 0.4fr;
-  gap: 5px;
+  gap: 7px;
   height: 100%;
   min-height: 0; 
 }
@@ -19,7 +19,7 @@
 .grid_1 {
   display: grid;
   grid-template-rows: 0.6fr 0.4fr;
-  gap: 5px;
+  gap: 7px;
   height: 100%;
   min-height: 0;
 }
@@ -27,6 +27,7 @@
 .grid_1_1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 7px;
   height: 100%;
   min-height: 0; 
 }
@@ -35,5 +36,6 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   height: 100%;
-  min-height: 0; 
+  min-height: 0;
+  gap: 7px;
 }
