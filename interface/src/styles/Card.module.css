@@ -1,0 +1,26 @@
+.card {
+  background-color: #ffffff; /* Fundo branco para o card */
+  border-radius: 12px;       /* Bordas arredondadas para o "balão" */
+  padding: 24px;             /* <<< SEU PADDING! Espaçamento interno */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave para destacar */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out; /* Efeito suave ao passar o mouse */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Levanta um pouco o card ao passar o mouse */
+}
+
+.card h3 {
+  margin-top: 0; /* Remove a margem de cima do título */
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.cardContent {
+  /* Estilos para o conteúdo, se necessário */
+  font-size: 1rem;
+  color: #555;
+}

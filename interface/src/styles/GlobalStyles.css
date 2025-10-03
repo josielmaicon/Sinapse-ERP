@@ -6,9 +6,21 @@
 /* ============================
    Variáveis globais
 ============================ */
+
+* {
+  box-sizing: border-box;
+}
+
 html, body, #root {
-  height: 100%;        /* garante altura total da viewport */
   margin: 0;           /* remove margens padrões do body */
+}
+
+html, body {
+  height: auto;
+}
+
+#root {
+  height: calc(100vh - 48px);
 }
 
 :root {
@@ -28,7 +40,6 @@ html, body, #root {
   /* Layout */
   --layout-margin: 24px;
   --layout-max-width: 1200px;
-    height: 100%;   /* garante altura total */
 
 
   /* Raio de borda */
@@ -43,11 +54,11 @@ html, body, #root {
 }
 
 .app-container {
-  height: calc(100% - 100px); /* altura = tela - topbar */
-  overflow: auto;             /* rolagem só dentro do conteúdo */
-  display: flex;              /* pra flex filhos funcionarem */
+  flex-grow: 1;
+  overflow: auto;
+  display: flex;
   flex-direction: column;
-  gap: 16px;                  /* se quiser espaço entre módulos */
+  gap: 5px;
 }
 
 /* ============================
@@ -170,3 +181,8 @@ h1, h2, h3, h4 {
   font-weight: 500;
 }
 
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

@@ -3,11 +3,11 @@ import { Outlet, NavLink } from 'react-router-dom';
 import { Settings, User } from 'lucide-react';
 import routes from '../routes';
 import Logo from './Logo';
-import './Layout.css';
+import '../styles/layout.css';
 
 export default function Layout() {
   return (
-    <div>
+    <div className='layout-wrapper'>
       <header className="topbar">
         {/* ESQUERDA */}
         <div className="topbar-left">

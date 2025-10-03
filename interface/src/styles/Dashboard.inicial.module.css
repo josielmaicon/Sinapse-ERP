@@ -1,0 +1,17 @@
+.dashboardContainer {
+  padding: 0px;
+  background-color: transparent;
+  
+}
+
+.dashboardContainer h1 {
+  margin-bottom: 24px;
+}
+
+.dashboardGrid {
+  display: grid;
+  /* Cria colunas flexíveis. Cada uma terá no mínimo 280px,
+     e elas se ajustarão para preencher o espaço (1fr). */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px; /* <<< SEU ESPAÇAMENTO! A distância entre os balões. */
+}
