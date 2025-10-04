@@ -5,7 +5,8 @@ function Card({title, children, variant = 'default'}) {
   const variantClass = {
     default: '',
     white: styles.card_w,
-    transparent: styles.card_t
+    transparent: styles.card_t,
+    transparent_ovf: styles.card_t_of_list
   }[variant];
 
   const cardClasses = `${styles.card} ${variantClass}`

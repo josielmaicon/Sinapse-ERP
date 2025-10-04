@@ -1,0 +1,67 @@
+/* Removemos o estilo padrão da lista (bolinhas) */
+.listaContainer {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 7px 5px;
+  justify-content: space-between;
+  flex-direction: row;
+  position: relative; 
+}
+
+.listItem::after {
+  content: ''; /* Obrigatório para que o pseudo-elemento seja gerado */
+  position: absolute; /* Para que possamos posicioná-lo livremente dentro do .listItem */
+  
+  /* Posiciona o pseudo-elemento na parte de baixo, esticado de ponta a ponta */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  height: 1px; /* A "espessura" da nossa falsa borda */
+
+  /* AQUI ESTÁ O GRADIENTE! */
+  background: linear-gradient(
+    to right, 
+    transparent, 
+    var(--color-border) 50%, 
+    transparent
+  );
+}
+
+.listItem:last-child::after {
+  display: none; /* Simplesmente esconde a nossa falsa borda */
+}
+
+/* Apenas um círculo para simular o avatar do usuário */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  flex-shrink: 0; /* Impede que o avatar encolha */
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.hr_abertura, .operador, .pdv{
+  text-align: right;
+  color: var(--color-text_2);
+  font-size: 13px;
+}
+
+.avatar {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);;
+}

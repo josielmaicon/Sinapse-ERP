@@ -1,6 +1,7 @@
 import Card from "../components/card";
 import styles from "../styles/Dashboard.inicial.module.css"
 import GraficoDeLinhas from "../components/GraficoLinhas";
+import ListaPDVS from "../components/listaPDVS"
 
 export default function HomePage() {
   return (
@@ -35,10 +36,10 @@ export default function HomePage() {
       </div>
 
           <div className={styles.grid_2}>
-            <Card title="PDV's Ativos">
+            <Card variant="transparent" title="PDV's">
               <div className={styles.grid_pdv_table}>
-                <Card variant="white">
-                  teste
+                <Card variant="transparent_ovf">
+                  <ListaPDVS />
                 </Card>
               </div>
             </Card>
