@@ -15,7 +15,7 @@ export default function PdvsPage() {
             <Card title="Performance do pdv selecionado">
               <div className={styles.grid_center}>
                 <div className={styles.grid_center_visuals}>
-                  <Card variant="white"></Card>
+                  <Card variant="white">ioba</Card>
                   <Card variant="white"></Card>
                   <Card variant="white"></Card>
                 </div>
