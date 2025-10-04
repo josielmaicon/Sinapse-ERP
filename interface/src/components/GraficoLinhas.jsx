@@ -32,22 +32,22 @@ export default function GraficoDeLinhas() {
     <ResponsiveContainer width="100%" height="100%">
       <LineChart
         data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
       >
         {/* Grade de fundo do gráfico */}
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid strokeDasharray="3 3" horizontal={false}/>
         
         {/* Eixo X (horizontal), usando a chave "mes" dos nossos dados */}
-        <XAxis dataKey="mes" />
+        {/* <XAxis dataKey="mes"/> */}
         
         {/* Eixo Y (vertical) */}
-        <YAxis />
-        
+        {/* <YAxis />*/}
+
         {/* Tooltip é a caixinha que aparece ao passar o mouse */}
         <Tooltip />
         
         {/* Legenda que mostra o nome de cada linha */}
-        <Legend />
+        {/* <Legend /> */}
         
         {/* A primeira linha, usando a chave "vendas_2024", com a cor azul */}
         <Line type="monotone" dataKey="vendas_2024" stroke="#8884d8" strokeWidth={2} />

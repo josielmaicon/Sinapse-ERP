@@ -42,7 +42,7 @@
 
 .grid_dash_1 {
   display: grid;
-  grid-template-rows: 0.75fr 0.25fr;
+  grid-template-rows: 0.7fr 0.3fr;
   height: 100%;
   min-height: 0;
 }

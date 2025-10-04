@@ -7,7 +7,7 @@ export default function HomePage() {
     <div className={styles.dashboardContainer}>
       <div className={styles.grid_0}>
         <div className={styles.grid_1}>
-          <Card title="Vendas do Mês">
+          <Card title="Faturamento">
             <div className={styles.grid_dash_1}>
               <GraficoDeLinhas />
             <div className={styles.grid_dash_2}>
@@ -35,7 +35,7 @@ export default function HomePage() {
       </div>
 
           <div className={styles.grid_2}>
-            <Card title="Satisfação do Cliente">
+            <Card title="PDV's Ativos">
               <p>9.2 / 10</p>
             </Card>
 
