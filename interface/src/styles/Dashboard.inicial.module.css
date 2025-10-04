@@ -54,3 +54,10 @@
   min-height: 0;
   gap: 7px;
 }
+
+.grid_pdv_table {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  min-height: 0;
+}

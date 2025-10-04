@@ -36,9 +36,12 @@ export default function HomePage() {
 
           <div className={styles.grid_2}>
             <Card title="PDV's Ativos">
-              <p>9.2 / 10</p>
+              <div className={styles.grid_pdv_table}>
+                <Card variant="white">
+                  teste
+                </Card>
+              </div>
             </Card>
-
             <Card title="Primeira Compra Hoje">
               <p>15</p>
             </Card>
