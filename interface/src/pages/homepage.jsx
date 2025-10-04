@@ -1,5 +1,6 @@
 import Card from "../components/card";
 import styles from "../styles/Dashboard.inicial.module.css"
+import GraficoDeLinhas from "../components/GraficoLinhas";
 
 export default function HomePage() {
   return (
@@ -7,8 +8,17 @@ export default function HomePage() {
       <div className={styles.grid_0}>
         <div className={styles.grid_1}>
           <Card title="Vendas do Mês">
-            <p>R$ 15.780,50</p>
-            <span>+5% em relação ao mês anterior</span>
+            <div className={styles.grid_dash_1}>
+              <GraficoDeLinhas />
+            <div className={styles.grid_dash_2}>
+              <Card variant="white">
+                <p>teste</p>
+              </Card>
+              <Card variant="white">
+                <p>teste</p>
+              </Card>
+            </div>
+            </div>
           </Card>
 
         <div className={styles.grid_1_1}>

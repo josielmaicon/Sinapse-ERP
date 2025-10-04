@@ -39,3 +39,18 @@
   min-height: 0;
   gap: 7px;
 }
+
+.grid_dash_1 {
+  display: grid;
+  grid-template-rows: 0.75fr 0.25fr;
+  height: 100%;
+  min-height: 0;
+}
+
+.grid_dash_2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  min-height: 0;
+  gap: 7px;
+}
