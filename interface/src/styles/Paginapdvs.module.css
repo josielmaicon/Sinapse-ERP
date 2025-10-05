@@ -59,3 +59,35 @@
     height: 100%;
     min-height: 0;
 }
+
+/* O novo container principal que organiza tudo verticalmente */
+.containerVertical {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Essencial para que ele tenha um espaço para preencher */
+  gap: 15px; /* Espaçamento entre as áreas */
+}
+
+/* A área dos filtros no topo */
+.areaFiltros {
+  flex-shrink: 0; /* Impede que os filtros sejam espremidos */
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* A área da lista no meio */
+.areaLista {
+  flex-grow: 1; /* <<< AQUI ESTÁ A MÁGICA! */
+  overflow-y: auto; /* Garante que a lista role se for maior que o espaço */
+  min-height: 0; /* Truque de CSS para evitar bugs de tamanho no flexbox */
+}
+
+/* A área dos botões no fundo */
+.areaBotoes {
+  flex-shrink: 0; /* Impede que os botões sejam espremidos */
+  display: flex;
+  gap: 10px;
+  /* Alinha os botões à direita, por exemplo */
+  justify-content: flex-end; 
+}

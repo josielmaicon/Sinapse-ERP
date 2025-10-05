@@ -15,7 +15,7 @@
   flex-grow: 1;
   font-size: 1rem;
   color: #555;
-  display: contents;
+  /* display: contents; */
   min-height: 0;
 }
 

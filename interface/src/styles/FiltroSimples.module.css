@@ -1,9 +1,10 @@
 .filterGroup {
   display: flex;
-  gap: 8px;
-  background: var(--color-bg-lvl-1); /* fundo cinza */
-  padding: 1px 1px;
+  gap: 3px;
+  background: transparent; /* fundo cinza */
+  padding: 2px 2px;
   border-radius: 30px;
+  border: solid 1px var(--color-bg);
   box-shadow: none;
   width: fit-content;
 }
@@ -17,7 +18,7 @@
   border: none;
   cursor: pointer;
   background: transparent; /* não selecionado */
-  color: var(--color-text);
+  color: #6b6e71;
   transition: 0.2s;
   border-radius: 20px;
   text-decoration: none;
