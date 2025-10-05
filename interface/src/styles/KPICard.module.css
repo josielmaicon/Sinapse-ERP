@@ -1,0 +1,81 @@
+/* KPICard.module.css - VERSÃO FINAL */
+
+.kpiContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  gap: 20px;
+}
+
+/* --- COLUNA DA ESQUERDA (Métricas) --- */
+.colunaMetricas {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+.blocoMetrica {
+  display: flex;
+  flex-direction: column; /* Empilha o valor e o rótulo */
+  
+  align-items: flex-start;  /* Alinha os filhos (a linha do valor e o rótulo) à esquerda */
+}
+
+.linhaValor {
+  display: flex;
+  align-items: center; /* Alinha o ícone com o valor */
+  gap: 4px;
+}
+
+.iconeMetrica {
+  color: var(--color-text-secondary);
+}
+
+.valorMetrica {
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.valorSecundario {
+  font-size: 2rem; /* Um pouco menor */
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.rotuloMetrica {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin-top: -2px;
+
+}
+
+/* --- COLUNA DA DIREITA (Gráfico) --- */
+.colunaGrafico {
+  flex-grow: 1; /* Faz a coluna do gráfico ocupar todo o espaço restante */
+  min-width: 0; /* Truque de CSS para o gráfico não estourar o layout */
+}
+
+.comparisonPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 20px;
+  margin-left: 12px;
+  vertical-align: middle; /* Alinha a pílula com o texto do valor */
+}
+
+.pillPositive {
+  background-color: #e6f4ea; /* Verde claro */
+  color: #34a853; /* Verde escuro */
+}
+
+.pillNegative {
+  background-color: #fce8e6; /* Vermelho claro */
+  color: #ea4335; /* Vermelho escuro */
+}

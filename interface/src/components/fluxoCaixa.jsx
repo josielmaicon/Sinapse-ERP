@@ -1,56 +1,52 @@
-// src/components/GraficoFluxoCaixa.jsx
+// src/components/GraficoFluxoDetalhado.jsx
 
 import React from 'react';
-import { 
-    BarChart, 
-    Bar, 
-    XAxis, 
-    YAxis, 
-    CartesianGrid, 
-    Tooltip, 
-    Legend, 
-    ResponsiveContainer,
-    ReferenceLine, // <-- 1. Importamos a ReferenceLine
-    Cell          // <-- 2. Importamos a Cell para as cores
+import {
+  ComposedChart, // <-- O componente principal para misturar gráficos
+  Line,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  ReferenceLine,
 } from 'recharts';
 
-// 3. Nossos dados agora incluem valores positivos (entradas) e negativos (saídas)
-const data = [
-  { name: 'Seg', valor: 400 },
-  { name: 'Ter', valor: -300 }, // Saída
-  { name: 'Qua', valor: 600 },
-  { name: 'Qui', valor: -250 }, // Saída
-  { name: 'Sex', valor: 700 },
-  { name: 'Sáb', valor: 150 },
-  { name: 'Dom', valor: -400 }, // Saída
-];
-
-export default function GraficoFluxoCaixa() {
+// Os dados que o componente vai receber já devem estar processados
+export default function GraficoFluxoDetalhado({ data }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart
+      <ComposedChart
         data={data}
         margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
       >
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
-        <XAxis dataKey="name" />
+        <XAxis dataKey="hora" />
         <YAxis />
         <Tooltip />
+        <Legend />
         
-        {/* 4. AQUI ESTÁ A LINHA DE BASE ZERO! */}
-        {/* Ela desenha uma linha preta na posição Y = 0 do gráfico. */}
-        <ReferenceLine y={0} stroke="#000" strokeWidth={2} />
+        {/* A linha de base zero ainda é útil para referência visual */}
+        <ReferenceLine y={0} stroke="#000" />
         
-        <Bar dataKey="valor">
-          {/* 5. A MÁGICA DAS CORES: */}
-          {/* Mapeamos nossos dados e para cada item, criamos uma <Cell> */}
-          {/* com uma cor baseada no valor (se é > 0 ou < 0). */}
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={entry.valor > 0 ? '#82ca9d' : '#ff7300'} />
-          ))}
-        </Bar>
-
-      </BarChart>
+        {/* BARRAS DE ENTRADA (positivas) */}
+        <Bar dataKey="entrada" barSize={20} fill="#82ca9d" />
+        
+        {/* BARRAS DE SAÍDA (negativas) */}
+        <Bar dataKey="saida" barSize={20} fill="#ff7300" />
+        
+        {/* A LINHA DO TOTAL (o "eixo" dinâmico) */}
+        <Line 
+          type="monotone" 
+          dataKey="totalEmCaixa" 
+          stroke="#004f76" // Uma cor de destaque
+          strokeWidth={3}
+          dot={{ r: 5 }}
+        />
+        
+      </ComposedChart>
     </ResponsiveContainer>
   );
 }
