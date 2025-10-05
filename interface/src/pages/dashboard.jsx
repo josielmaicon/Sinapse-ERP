@@ -1,3 +1,5 @@
 export default function DashboardPage() {
-  return <h2>Página Inicial</h2>;
+  return (
+  <h2>Em produção</h2>
+);
 }

@@ -17,18 +17,20 @@ export default function Layout() {
 
         {/* MEIO - NAVEGAÇÃO */}
         <nav className="topbar-nav btn-group">
-          {routes.map(({ path, name, icon: Icon }) => (
-            <NavLink
-              key={path}
-              to={path}
-              end={path === '/'}
-              className={({ isActive }) =>
-                `nav-btn squircle ${isActive ? 'active' : ''}`
-              }
-            >
-              <Icon size={20} style={{ marginRight: '6px' }}/>
-              {name}
-            </NavLink>
+          {routes
+          .filter(route => route.showInNav)
+            .map(({ path, name, icon: Icon }) => (
+              <NavLink
+                key={path}
+                to={path}
+                end={path === '/'}
+                className={({ isActive }) =>
+                  `nav-btn squircle ${isActive ? 'active' : ''}`
+                }
+              >
+                <Icon size={20} style={{ marginRight: '6px' }}/>
+                {name}
+              </NavLink>
           ))}
         </nav>
 

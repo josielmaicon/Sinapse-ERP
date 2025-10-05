@@ -188,3 +188,32 @@ h1, h2, h3, h4 {
   flex-direction: column;
   height: 100%;
 }
+
+/* ============================
+   Grupo de botões (FILTRO)
+============================ */
+
+.btn-group-f {
+  display: flex;
+  gap: 8px;
+  background: var(--color-bg-lvl-1); /* fundo cinza */
+  padding: 5px;
+  border-radius: var(--btn-group-radius);
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.nav-btn-f {
+  display: inline-flex;       /* flex dentro do botão */
+  align-items: center;        /* centraliza verticalmente */
+  justify-content: center;    /* centraliza horizontalmente */
+  padding: 10px 17px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  background: transparent; /* não selecionado */
+  color: var(--color-text);
+  transition: 0.2s;
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+}
