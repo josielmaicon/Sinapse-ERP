@@ -2,6 +2,7 @@ import styles from "../styles/Paginapdvs.module.css"
 import React, { useState, useMemo} from "react";
 import Card from "../components/card";
 import GraficoFluxoCaixa from "../components/fluxoCaixa";
+import FiltroSimples from "../components/filtroSimples"
 
 const todosOsPdvs = [
   { id: 1, nome: 'PDV_01', status: 'aberto' },
@@ -48,17 +49,11 @@ export default function PdvsPage() {
           </div>
           <div className={styles.grid_body}>
             <Card title="Lista de PDVs (com botões, switch e filtro)">
-              <div className="btn-group-f">
-                {opcoesFiltro.map((filtro) => (
-                  <button
-                    key={filtro.id}
-                    className={`nav-btn-f ${filtroAtivo === filtro.id ? "nav-btn-f.active" : ''}`}
-                    onClick={() => setFiltroAtivo(filtro.id)}
-                  >
-                    {filtro.label}
-                  </button>
-                ))}
-              </div>
+          <FiltroSimples 
+            options={opcoesFiltro}
+            activeFilter={filtroAtivo}
+            onFilterChange={setFiltroAtivo} 
+          />
             </Card>
             <Card title="Performance do pdv selecionado">
               <div className={styles.grid_center}>

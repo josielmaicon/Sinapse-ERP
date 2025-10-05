@@ -1,0 +1,38 @@
+.filterGroup {
+  display: flex;
+  gap: 8px;
+  background: var(--color-bg-lvl-1); /* fundo cinza */
+  padding: 1px 1px;
+  border-radius: 30px;
+  box-shadow: none;
+  width: fit-content;
+}
+
+.filterButton {
+  display: inline-flex;       /* flex dentro do botão */
+  align-items: center;        /* centraliza verticalmente */
+  justify-content: center;    /* centraliza horizontalmente */
+  padding: 10px 17px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  background: transparent; /* não selecionado */
+  color: var(--color-text);
+  transition: 0.2s;
+  border-radius: 20px;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.filterButton:hover {
+  background: #dee2e6; /* hover leve no não selecionado */
+  text-decoration: none;
+}
+
+.active {
+  background: var(--color-primary);
+  color: var(--color-bg-lvl-2);
+  text-decoration: none;
+  font-weight: 500;
+}
