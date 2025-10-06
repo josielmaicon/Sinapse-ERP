@@ -18,7 +18,7 @@ export default function KpiCard({ metricaPrincipal, metricaSecundaria, children 
           {metricaPrincipal && (
             <div className={styles.blocoMetrica}>
               <div className={styles.linhaValor}>
-                {IconPrincipal && <IconPrincipal size={20} className={styles.iconeMetrica} />}
+                {IconPrincipal && <IconPrincipal size={70} className={styles.iconeMetrica} />}
                 <span className={styles.valorMetrica}>{valorPrincipal}</span>
               </div>
               <span className={styles.rotuloMetrica}>{rotuloPrincipal}</span>
@@ -27,7 +27,7 @@ export default function KpiCard({ metricaPrincipal, metricaSecundaria, children 
           {metricaSecundaria && (
             <div className={styles.blocoMetrica}>
               <div className={styles.linhaValor}>
-                {IconSecundario && <IconSecundario size={18} className={styles.iconeMetrica} />}
+                {IconSecundario && <IconSecundario size={28} className={styles.iconeSecundario} />}
                 <span className={`${styles.valorMetrica} ${styles.valorSecundario}`}>{valorSecundario}</span>
               </div>
               <span className={styles.rotuloMetrica}>{rotuloSecundario}</span>

@@ -1,7 +1,7 @@
 import styles from "../styles/Paginapdvs.module.css"
 import React, { useState, useMemo} from "react";
 import Card from "../components/card";
-import GraficoFluxoDetalhado from "../components/fluxoCaixa";
+import GraficoEntradaSaida from "../components/fluxoCaixa";
 import FiltroSimples from "../components/filtroSimples"
 import ListaSimples from "../components/listaSimples";
 import KpiCard from "../components/KPICard";
@@ -18,20 +18,32 @@ const todosOsPdvs = [
   { id: 5, nome: 'PDV_05', status: 'aberto' },
 ];
 
-const transacoesBrutas = [
-  { hora: 8,  tipo: 'entrada', valor: 120.50 }, { hora: 8,  tipo: 'saida',   valor: 15.20 },
-  { hora: 9,  tipo: 'entrada', valor: 200.20 }, { hora: 9,  tipo: 'saida',   valor: 15.50 },
-  { hora: 10, tipo: 'entrada', valor: 150.40 },  { hora: 10, tipo: 'saida',   valor: 50.10 },
-  { hora: 11, tipo: 'entrada', valor: 130.90 },  { hora: 11, tipo: 'saida',   valor: 100.75 },
-  { hora: 12, tipo: 'entrada', valor: 75.00 },   { hora: 12, tipo: 'saida',   valor: 90.10 },
-  { hora: 13, tipo: 'entrada', valor: 95.75 },   { hora: 13, tipo: 'saida',   valor: 80.90 },
-  { hora: 14, tipo: 'entrada', valor: 180.00 },  { hora: 14, tipo: 'saida',   valor: 50.35 },
-  { hora: 15, tipo: 'entrada', valor: 130.00 },  { hora: 15, tipo: 'saida',   valor: 90.50 },
-  { hora: 16, tipo: 'entrada', valor: 200.80 },  { hora: 16, tipo: 'saida',   valor: 150.75 },
-  { hora: 17, tipo: 'entrada', valor: 110.40 },  { hora: 17, tipo: 'saida',   valor: 95.25 },
-  { hora: 18, tipo: 'entrada', valor: 200.15 },  { hora: 18, tipo: 'saida',   valor: 75.25 },
-  { hora: 19, tipo: 'entrada', valor: 150.20 },  { hora: 19, tipo: 'saida',   valor: 110.50 },
-  { hora: 20, tipo: 'entrada', valor: 60.50 },   { hora: 20, tipo: 'saida',   valor: 45.30 },
+const dadosParaGrafico = [
+  { hora: '08:00', range: [100, 160], totalFinal: 120 },
+  { hora: '08:30', range: [140, 200], totalFinal: 180 },
+  { hora: '09:00', range: [150, 210], totalFinal: 200 },
+  { hora: '09:30', range: [170, 250], totalFinal: 230 },
+  { hora: '10:00', range: [200, 350], totalFinal: 300 },
+  { hora: '10:30', range: [150, 280], totalFinal: 260 },
+  { hora: '11:00', range: [200, 310], totalFinal: 200 },
+  { hora: '11:30', range: [220, 340], totalFinal: 280 },
+  { hora: '12:00', range: [250, 380], totalFinal: 360 },
+  { hora: '12:30', range: [180, 260], totalFinal: 340 },
+  { hora: '13:00', range: [160, 240], totalFinal: 320 },
+  { hora: '13:30', range: [170, 270], totalFinal: 300 },
+  { hora: '14:00', range: [190, 310], totalFinal: 360 },
+  { hora: '14:30', range: [230, 370], totalFinal: 420 },
+  { hora: '15:00', range: [280, 420], totalFinal: 460 },
+  { hora: '15:30', range: [150, 300], totalFinal: 410 },
+  { hora: '16:00', range: [320, 480], totalFinal: 500 },
+  { hora: '16:30', range: [200, 350], totalFinal: 520 },
+  { hora: '17:00', range: [150, 280], totalFinal: 540 },
+  { hora: '17:30', range: [100, 250], totalFinal: 460 },
+  { hora: '18:00', range: [250, 400], totalFinal: 520 },
+  { hora: '18:30', range: [180, 300], totalFinal: 510 },
+  { hora: '19:00', range: [120, 240], totalFinal: 460 },
+  { hora: '19:30', range: [200, 320], totalFinal: 510 },
+  { hora: '20:00', range: [150, 260], totalFinal: 500 },
 ];
 
 
@@ -54,31 +66,6 @@ const opcoesFiltro = [
   { id: 'fechados', label: 'Fechados' },
   { id: 'offline', label: 'Offline' },
 ];
-
-  // Função para processar os dados
-  const processarDados = (dados) => {
-    const dadosPorHora = {};
-    let totalAcumulado = 0;
-
-    // Assume que o dia vai das 8h às 18h
-    for (let i = 8; i <= 20; i++) {
-      const horaFormatada = `${String(i).padStart(2, '0')}:00`;
-      dadosPorHora[i] = { hora: horaFormatada, entrada: 0, saida: 0 };
-    }
-
-    dados.forEach(transacao => {
-      if (transacao.tipo === 'entrada') {
-        dadosPorHora[transacao.hora].entrada += transacao.valor;
-      } else {
-        dadosPorHora[transacao.hora].saida -= transacao.valor; // Armazena como negativo
-      }
-    });
-
-    return Object.values(dadosPorHora).map(horaData => {
-      totalAcumulado += horaData.entrada + horaData.saida;
-      return { ...horaData, totalEmCaixa: totalAcumulado };
-    });
-  };
 
 export default function PdvsPage() {
 
@@ -106,25 +93,14 @@ export default function PdvsPage() {
     return todosOsPdvs.filter(pdv => pdv.status === filtroAtivo);
   }, [filtroAtivo, todosOsPdvs]);
 
-    const dadosParaGrafico = useMemo(() => processarDados(transacoesBrutas), [transacoesBrutas]);
-
     return(
     <div className={styles.dashboardContainer}>
       <div className={styles.grid_main}>
         <div className={styles.grid_main_left}>
           <div className={styles.grid_visuals}>
             <Card title="Tempo de atividade (geral e da semana)"></Card>
-            <KpiCard 
-              metricaPrincipal={{ 
-                icon: TrendingUp, 
-                valor: 'R$ 1.234,56',
-                rotulo: 'Lucro no Dia'
-              }}
-              metricaSecundaria={{
-                icon: Calendar,
-                valor: 'R$ 8.765,43',
-                rotulo: 'Total na Semana'
-              }}
+            <KpiCard metricaPrincipal={{ icon: TrendingUp, valor: 'R$ 1.234,56', rotulo: 'Lucro no Dia' }}
+              metricaSecundaria={{icon: Calendar, valor: 'R$ 8.765,43', rotulo: 'Total na Semana'}}
             >
               <MiniGraficoArea />
             </KpiCard>
@@ -157,8 +133,8 @@ export default function PdvsPage() {
                   <Card variant="white"></Card>
                   <Card variant="white"></Card>
                 </div>
-                  <GraficoFluxoDetalhado data={dadosParaGrafico} />
-              </div>
+                    <GraficoEntradaSaida data={dadosParaGrafico} />
+                </div>
             </Card>
           </div>
         </div>
